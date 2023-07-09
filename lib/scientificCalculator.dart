@@ -1,8 +1,8 @@
-import 'package:math_expressions/math_expressions.dart';
+
 import 'package:flutter/material.dart';
 import 'constants.dart';
 import 'keyboard.dart';
-
+import 'package:math_expressions/math_expressions.dart';
 String firstOperand = '0';
 String secondOperand = '';
 String operators = '';
@@ -29,7 +29,7 @@ class _ScientificCalculatorState extends State<ScientificCalculator> {
 
   void initialise() {}
 
-  void _onPressed({String buttonText}) {
+  void _onPressed({required String buttonText}) {
     switch (buttonText) {
       case EXCHANGE_CALCULATOR:
         setState(() {
@@ -242,7 +242,7 @@ class _ScientificCalculatorState extends State<ScientificCalculator> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Calculator'),
+        title: Text('Scientific Calculator'),
         centerTitle: true,
         elevation: 0.0,
       ),

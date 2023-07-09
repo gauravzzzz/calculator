@@ -1,10 +1,10 @@
 import 'constants.dart';
 import 'package:flutter/material.dart';
 
-typedef void CallbackButtonTap({String buttonText});
+typedef void CallbackButtonTap({required String buttonText});
 
 class KeyboardButtons extends StatelessWidget {
-  KeyboardButtons({this.buttons, @required this.onTap});
+  KeyboardButtons({required this.buttons,  required this.onTap});
 
   final String buttons;
   final CallbackButtonTap onTap;
@@ -61,18 +61,21 @@ class KeyboardButtons extends StatelessWidget {
     return Expanded(
       child: Container(
         alignment: Alignment.center,
-        child: FlatButton(
-          color: (buttons == EQUAL_SIGN)
-              ? Theme.of(context).primaryColor
-              : Color(0xFFFFFFFF),
-          padding: EdgeInsets.symmetric(vertical: 10.0),
+        child: ElevatedButton(
+          style:ElevatedButton.styleFrom(
+            backgroundColor: (buttons == EQUAL_SIGN)
+                ? Colors.black
+                : Color(0xFFFFFFFF),padding: EdgeInsets.symmetric(vertical: 10.0),
+          ),
+
+
           child: Text(
             buttons,
             style: TextStyle(
                 color: (_colorTextButtons())
                     ? Colors.blueAccent
                     : (buttons == EQUAL_SIGN)
-                        ? Theme.of(context).buttonColor
+                        ? Theme.of(context).primaryColor
                         : Color(0xFF444444),
                 fontSize: _fontSize() ? 18 : 20.0),
           ),
